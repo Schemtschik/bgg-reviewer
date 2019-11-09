@@ -1,19 +1,14 @@
 CREATE TABLE games (
     id INT NOT NULL PRIMARY KEY,
-    bgg_url VARCHAR(255) NOT NULL,
     name VARCHAR(255) NOT NULL,
-    min_players INT NOT NULL,
-    max_players INT NOT NULL,
-    avg_time INT NOT NULL,
-    min_time INT NOT NULL,
-    max_time INT NOT NULL,
-    year INT NOT NULL,
-    avg_rating FLOAT NOT NULL,
-    geek_rating FLOAT NOT NULL,
-    num_votes INT NOT NULL,
-    image_url VARCHAR(255) NOT NULL,
-    age INT NOT NULL,
-    owned INT NOT NULL
+    picture VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    player_min_age INT NOT NULL,
+    players_min_amount INT NOT NULL,
+    players_max_amount INT NOT NULL,
+    duration INT NOT NULL,
+    release_year INT NOT NULL,
+    rating FLOAT NOT NULL
 );
 
 CREATE TABLE families (
