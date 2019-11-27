@@ -1,8 +1,12 @@
 package ru.eshemchik.bgg.pojo;
 
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
@@ -10,7 +14,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "games")
-public class Game {
+public final class Game {
     @Id
     private int id;
     private String name;
@@ -27,6 +31,34 @@ public class Game {
     @Column(name = "release_year")
     private int releaseYear;
     private double rating;
+
+    @ManyToMany
+    @JoinTable(
+            name = "game_to_category",
+            joinColumns = @JoinColumn(name = "game_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
+    private List<Category> categories;
+
+    @ManyToMany
+    @JoinTable(
+            name = "game_to_family",
+            joinColumns = @JoinColumn(name = "game_id"),
+            inverseJoinColumns = @JoinColumn(name = "family_id"))
+    private List<Family> families;
+
+    @ManyToMany
+    @JoinTable(
+            name = "game_to_designers",
+            joinColumns = @JoinColumn(name = "game_id"),
+            inverseJoinColumns = @JoinColumn(name = "designer_id"))
+    private List<Designer> designers;
+
+    @ManyToMany
+    @JoinTable(
+            name = "game_to_mechanics",
+            joinColumns = @JoinColumn(name = "game_id"),
+            inverseJoinColumns = @JoinColumn(name = "mechanic_id"))
+    private List<Mechanic> mechanics;
 
     protected Game() {}
 
@@ -68,5 +100,21 @@ public class Game {
 
     public double getRating() {
         return rating;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public List<Family> getFamilies() {
+        return families;
+    }
+
+    public List<Designer> getDesigners() {
+        return designers;
+    }
+
+    public List<Mechanic> getMechanics() {
+        return mechanics;
     }
 }
