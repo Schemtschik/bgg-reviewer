@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import ru.eshemchik.bgg.dao.GamesDao;
+import ru.eshemchik.bgg.dao.DataProvider;
 
 /**
  * @author eshemchik
@@ -17,15 +17,20 @@ import ru.eshemchik.bgg.dao.GamesDao;
 public class Controller {
     private static final Logger logger = LoggerFactory.getLogger(Controller.class);
 
-    private final GamesDao gamesDao;
+    private final DataProvider dataProvider;
 
-    public Controller(GamesDao gamesDao) {
-        this.gamesDao = gamesDao;
+    public Controller(DataProvider dataProvider) {
+        this.dataProvider = dataProvider;
     }
 
     @RequestMapping(value = "/get-game")
     public Response getGame(@RequestParam("id") int id) {
-        return get(() -> gamesDao.findById(id).orElseThrow(() -> new RuntimeException("No such game")));
+        return get(() -> dataProvider.getGameById(id));
+    }
+
+    @RequestMapping(value = "/get-category")
+    public Response getCategory(@RequestParam("id") int id) {
+        return get(() -> dataProvider.getCategoryById(id));
     }
 
     private <T> Response get(Supplier<T> supplier) {
