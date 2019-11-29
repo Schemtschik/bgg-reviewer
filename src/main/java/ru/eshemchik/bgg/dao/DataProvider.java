@@ -1,15 +1,11 @@
 package ru.eshemchik.bgg.dao;
 
-import java.util.List;
-import java.util.stream.Collectors;
 import javax.persistence.EntityManager;
 
-import com.google.common.collect.Streams;
 import org.springframework.stereotype.Component;
 
 import ru.eshemchik.bgg.pojo.Category;
 import ru.eshemchik.bgg.pojo.Game;
-import ru.eshemchik.bgg.pojo.GamesCluster;
 
 /**
  * @author eshemchik
@@ -43,14 +39,7 @@ public final class DataProvider {
         return gamesDao.findById(id).orElseThrow(() -> new RuntimeException("No such game"));
     }
 
-    public GamesCluster getCategoryById(int id) {
-        Category category = categoriesDao.findById(id).orElseThrow(() -> new RuntimeException("No such catogory"));
-        List<Game> games = Streams.stream(gamesDao.findAll())
-                .filter(game -> game.getCategories().contains(category))
-                .collect(Collectors.toList());
-        return new GamesCluster(
-                category,
-                games
-        );
+    public Category getCategoryById(int id) {
+        return categoriesDao.findById(id).orElseThrow(() -> new RuntimeException("No such category"));
     }
 }

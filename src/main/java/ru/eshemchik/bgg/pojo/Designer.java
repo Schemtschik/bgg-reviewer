@@ -9,7 +9,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "designers")
-public final class Designer implements Cluster {
+public final class Designer {
     @Id
     private int id;
     private String name;
@@ -22,26 +22,5 @@ public final class Designer implements Cluster {
 
     public String getName() {
         return name;
-    }
-
-    @Override
-    public String getClusterType() {
-        return "designer";
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Designer designer = (Designer) o;
-
-        return id == designer.id;
-
-    }
-
-    @Override
-    public int hashCode() {
-        return id;
     }
 }

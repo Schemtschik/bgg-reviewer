@@ -1,7 +1,11 @@
 package ru.eshemchik.bgg.pojo;
 
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
@@ -9,10 +13,17 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "categories")
-public final class Category implements Cluster {
+public final class Category {
     @Id
     private int id;
     private String name;
+
+    @ManyToMany
+    @JoinTable(
+            name = "game_to_category",
+            joinColumns = @JoinColumn(name = "category_id"),
+            inverseJoinColumns = @JoinColumn(name = "game_id"))
+    private List<Game> games;
 
     protected Category() {}
 
@@ -24,24 +35,7 @@ public final class Category implements Cluster {
         return name;
     }
 
-    @Override
-    public String getClusterType() {
-        return "category";
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Category category = (Category) o;
-
-        return id == category.id;
-
-    }
-
-    @Override
-    public int hashCode() {
-        return id;
+    public List<Game> getGames() {
+        return games;
     }
 }
