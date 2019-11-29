@@ -36,10 +36,10 @@ public final class DataProvider {
     }
 
     public Game getGameById(int id) {
-        return gamesDao.findById(id).orElseThrow(() -> new RuntimeException("No such game"));
+        return gamesDao.findById(id).orElseThrow(() -> new RuntimeException("No such game")).rich();
     }
 
     public Category getCategoryById(int id) {
-        return categoriesDao.findById(id).orElseThrow(() -> new RuntimeException("No such category"));
+        return categoriesDao.findById(id).orElseThrow(() -> new RuntimeException("No such category")).withGames();
     }
 }

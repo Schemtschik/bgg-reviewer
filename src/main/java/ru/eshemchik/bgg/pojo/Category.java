@@ -8,12 +8,14 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * @author eshemchik
  */
 @Entity
 @Table(name = "categories")
-public final class Category {
+public final class Category extends WithGames<Category> {
     @Id
     private int id;
     private String name;
@@ -35,7 +37,9 @@ public final class Category {
         return name;
     }
 
-    public List<Game> getGames() {
+    @Override
+    @JsonIgnore
+    public List<Game> getGamesInternal() {
         return games;
     }
 }
