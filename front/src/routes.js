@@ -20,49 +20,74 @@ import UserProfile from "views/UserProfile.jsx";
 import TableList from "views/TableList.jsx";
 import Typography from "views/Typography.jsx";
 import Icons from "views/Icons.jsx";
+import Games from "views/Games";
+import Cat from "views/Cat";
+import Game from "./views/Game";
 
 const dashboardRoutes = [
   {
-    path: "/categories",
-    name: "Categories",
+    path: "/games",
+    name: "Games",
     icon: "pe-7s-ticket",
-    component: UserProfile,
-    layout: "/admin"
+    component: Games,
+    layout: "/admin",
+    hidden: false
   },
   {
     path: "/user",
     name: "User Profile",
     icon: "pe-7s-user",
     component: UserProfile,
-    layout: "/admin"
+    layout: "/admin",
+    hidden: false
   },
   {
     path: "/table",
     name: "Table List",
     icon: "pe-7s-note2",
     component: TableList,
-    layout: "/admin"
+    layout: "/admin",
+    hidden: false
   },
   {
     path: "/typography",
     name: "Typography",
     icon: "pe-7s-news-paper",
     component: Typography,
-    layout: "/admin"
+    layout: "/admin",
+    hidden: false
   },
   {
     path: "/icons",
     name: "Icons",
     icon: "pe-7s-science",
     component: Icons,
-    layout: "/admin"
+    layout: "/admin",
+    hidden: false
   },
   {
     path: "/dashboard",
     name: "Dashboard",
     icon: "pe-7s-graph",
     component: Dashboard,
-    layout: "/admin"
+    layout: "/admin",
+    hidden: false
+  },
+  {
+    path: "/cat",
+    name: "",
+    icon: "pe-7s-graph",
+    component: Cat,
+    layout: "/admin",
+    hidden: true
+  },
+  {
+    path: "/game",
+    name: "",
+    icon: "pe-7s-graph",
+    component: Game,
+    layout: "/admin",
+    hidden: true
   }
 ];
 
