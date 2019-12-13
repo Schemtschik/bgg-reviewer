@@ -7,10 +7,12 @@ import com.google.common.collect.Lists;
 import org.springframework.stereotype.Component;
 
 import ru.eshemchik.bgg.pojo.Category;
+import ru.eshemchik.bgg.pojo.CategoryWithRating;
 import ru.eshemchik.bgg.pojo.Designer;
 import ru.eshemchik.bgg.pojo.Family;
 import ru.eshemchik.bgg.pojo.Game;
 import ru.eshemchik.bgg.pojo.Mechanic;
+import ru.eshemchik.bgg.pojo.MechanicWithRating;
 
 /**
  * @author eshemchik
@@ -74,5 +76,19 @@ public final class DataProvider {
 
     public List<Mechanic> getMechanics() {
         return Lists.newArrayList(mechanicsDao.findAll());
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<MechanicWithRating> getMechanicsWithRating(int year) {
+        return (List<MechanicWithRating>) entityManager.createNamedStoredProcedureQuery("games_mechanics_rating")
+                .setParameter("year", year)
+                .getResultList();
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<CategoryWithRating> getCategoriesWithRating(int year) {
+        return (List<CategoryWithRating>) entityManager.createNamedStoredProcedureQuery("games_category_rating")
+                .setParameter("year", year)
+                .getResultList();
     }
 }

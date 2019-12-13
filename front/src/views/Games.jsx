@@ -11,8 +11,9 @@ class Games extends Component {
                 <Grid fluid>
                     <Row>
                         <Col md={12}>
+                            <a href="admin/games?year=2015">Previous year</a>
                             <Card
-                                title="Categories"
+                                title={"Categories rated by " + 2016}
                                 category="Select a category"
                                 ctTableFullWidth
                                 ctTableResponsive
