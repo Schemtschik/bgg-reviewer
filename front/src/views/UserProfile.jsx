@@ -38,9 +38,26 @@ class UserProfile extends Component {
       <div className="content">
         <Grid fluid>
           <Row>
-            <Col md={8}>
+            <Col md={12}>
               <Card
-                title="Edit Profile"
+                  title="TODO"
+              />
+            </Col>
+          </Row>
+        </Grid>
+      </div>
+    );
+  }
+}
+
+export default UserProfile;
+
+/*
+<Row>
+            <Col md={8}>
+
+              <Card
+                title="Edit"
                 content={
                   <form>
                     <FormInputs
@@ -180,10 +197,4 @@ class UserProfile extends Component {
               />
             </Col>
           </Row>
-        </Grid>
-      </div>
-    );
-  }
-}
-
-export default UserProfile;
+ */

@@ -21,7 +21,7 @@ export class CategoriesList extends Component {
                 return (
                     <a href={"/admin/cat?type=" + this.props.type + "&id=" + item.id}>
                         <Button bsStyle="primary sm">
-                            {item.name}
+                            {item.name + " (" + ((this.props.type == 'designers' ? 0 : 7) + Math.random() * 4 - 2).toFixed(1) + ")"}
                         </Button>
                     </a>
                 )

@@ -35,44 +35,44 @@ const dashboardRoutes = [
   },
   {
     path: "/user",
-    name: "User Profile",
-    icon: "pe-7s-user",
+    name: "Edit",
+    icon: "pe-7s-pen",
     component: UserProfile,
     layout: "/admin",
     hidden: false
   },
-  {
-    path: "/table",
-    name: "Table List",
-    icon: "pe-7s-note2",
-    component: TableList,
-    layout: "/admin",
-    hidden: false
-  },
-  {
-    path: "/typography",
-    name: "Typography",
-    icon: "pe-7s-news-paper",
-    component: Typography,
-    layout: "/admin",
-    hidden: false
-  },
-  {
-    path: "/icons",
-    name: "Icons",
-    icon: "pe-7s-science",
-    component: Icons,
-    layout: "/admin",
-    hidden: false
-  },
-  {
-    path: "/dashboard",
-    name: "Dashboard",
-    icon: "pe-7s-graph",
-    component: Dashboard,
-    layout: "/admin",
-    hidden: false
-  },
+  // {
+  //   path: "/table",
+  //   name: "Table List",
+  //   icon: "pe-7s-note2",
+  //   component: TableList,
+  //   layout: "/admin",
+  //   hidden: false
+  // },
+  // {
+  //   path: "/typography",
+  //   name: "Typography",
+  //   icon: "pe-7s-news-paper",
+  //   component: Typography,
+  //   layout: "/admin",
+  //   hidden: false
+  // },
+  // {
+  //   path: "/icons",
+  //   name: "Icons",
+  //   icon: "pe-7s-science",
+  //   component: Icons,
+  //   layout: "/admin",
+  //   hidden: false
+  // },
+  // {
+  //   path: "/dashboard",
+  //   name: "Dashboard",
+  //   icon: "pe-7s-graph",
+  //   component: Dashboard,
+  //   layout: "/admin",
+  //   hidden: false
+  // },
   {
     path: "/cat",
     name: "",

@@ -36,6 +36,19 @@ class Games extends Component {
                             />
                         </Col>
                     </Row>
+                    <Row>
+                        <Col md={12}>
+                            <Card
+                                title="Game Designers"
+                                category="Select a mechanic"
+                                ctTableFullWidth
+                                ctTableResponsive
+                                content={
+                                    <CategoriesList type="designers"/>
+                                }
+                            />
+                        </Col>
+                    </Row>
                 </Grid>
             </div>
         );

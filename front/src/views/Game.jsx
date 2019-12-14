@@ -63,6 +63,7 @@ class Game extends Component {
                                 bigIcon={<i className="pe-7s-smile text-warning" />}
                                 statsText="Age"
                                 statsValue={this.state.game.playerMinAge + "+"}
+                                statsIconText={'avg.rating: ' + Math.max(0, this.state.game.rating + Math.random() * 4 - 2).toFixed(2)}
                             />
                         </Col>
                         <Col lg={3} sm={6}>
@@ -70,13 +71,15 @@ class Game extends Component {
                                 bigIcon={<i className="pe-7s-users text-success" />}
                                 statsText="Players"
                                 statsValue={this.state.game.playersMinAmount + "-" + this.state.game.playersMaxAmount}
-                            />
+                                statsIconText={'avg.rating: ' + Math.max(0, this.state.game.rating + Math.random() * 4 - 2).toFixed(2)}
+                        />
                         </Col>
                         <Col lg={3} sm={6}>
                             <StatsCard
                                 bigIcon={<i className="pe-7s-clock text-danger" />}
                                 statsText="Duration"
                                 statsValue={this.state.game.duration + "m"}
+                                statsIconText={'avg.rating: ' + Math.max(0, this.state.game.rating + Math.random() * 4 - 2).toFixed(2)}
                             />
                         </Col>
                         <Col lg={3} sm={6}>
